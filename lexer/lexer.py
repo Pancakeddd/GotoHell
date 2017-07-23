@@ -91,23 +91,8 @@ class lexer:
              #Math
              elif(split1[i] == "MAT"):
                 called = True
-                #if its plus
-                if(split1[i+1] == "+"):
-
-                    returnlex.append("MATH ,+,{0},{1},{2}".format(split1[i+2],split1[i+3],split1[i+4]))
-                #if its minus
-                elif(split1[i+1] == "-"):
-
-                    returnlex.append("MATH ,-,{0},{1},{2}".format(split1[i+2],split1[i+3],split1[i+4]))
-                #if its multiplication
-                elif(split1[i+1] == "*"):
-
-                    returnlex.append("MATH ,*,{0},{1},{2}".format(split1[i+2],split1[i+3],split1[i+4]))
-                #if its division
-                elif(split1[i+1] == "/"):
-
-                    returnlex.append("MATH ,/,{0},{1},{2}".format(split1[i+2],split1[i+3],split1[i+4]))
-                #else it returns a error string
+                if split1[i+1] in ["+", "*", "-", "/"]:
+                    returnlex.append("MATH ,{0},{1},{2},{3}".format(split[i+1],split1[i+2],split1[i+3],split1[i+4]))
                 else:
                     returnlex.append("MATH !{0}!".format(split1[i+1]))
              #Function
